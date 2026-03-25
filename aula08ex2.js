@@ -3,8 +3,6 @@ Exercício 2 (vale nota)
 CRIAR UM "BANCO DE DADOS" DE ALGUMA DAS SEGUINTES CATEGORIAS:
 LIVROS, FILMES, SÉRIES, JOGOS, ANIMES.
 USANDO OBJETOS, COM PELO MENOS 10 ELEMENTOS. 10 livros
-
-SEGUIR O MODELO ABAIXO:
 */
 
 const livros = [
@@ -54,7 +52,7 @@ const livros = [
     ano: 1615,
     paginas: 1200,
     sinopse: "A obra narra as aventuras de Alonso Quijano, um fidalgo de meia-idade que, de tanto ler romances de cavalaria, perde o juízo e decide tornar-se um cavaleiro andante sob o nome de Dom Quixote de La Mancha.",
-    preco: 99.90 
+    preco: 119.90 
     },
     {
     titulo: "Quincas Borba",
@@ -73,19 +71,44 @@ const livros = [
     preco: 19.90 
     },
     {
-    titulo: "1984",
-    autor: "Autor",
-    ano: 9999,
-    paginas: 333,
-    sinopse: "Quando virou o envelope, com a mão trêmula, Harry viu um lacre de cera púrpura com um brasão; um leão, uma águia, um texugo e uma cobra circulando uma grande letra\nHarry Potter nunca havia ouvido falar de Hogwarts quando as cartas começaram a aparecer no capacho da Rua dos Alfeneiros, nº 4. Escritos a tinta verde-esmeralda em pergaminho amarelado com um lacre de cera púrpura, as cartas eram rapidamente confiscadas por seus pavorosos tio e tia. Então, no aniversário de onze anos de Harry, um gigante com olhos que luziam como besouros negros chamado Rúbeo Hagrid surge com notícias surpreendentes: Harry Potter é um bruxo e tem uma vaga na Escola de Magia e Bruxaria de Hogwarts. Uma incrível aventura está para começar!",
-    preco: 99.90 
+    titulo: "O cortiço",
+    autor: "Aluísio Azevedo",
+    ano: 1890,
+    paginas:354,
+    sinopse: "A obra retrata a vida em um cortiço (habitação coletiva precária) no Rio de Janeiro do final do século XIX. O enredo central gira em torno de João Romão, um português ganancioso que explora seus inquilinos e sua companheira, Bertoleza, para acumular riqueza e ascender socialmente, rivalizando com o burguês Miranda.",
+    preco: 45.00 
     },
     {
-    titulo: "1984",
-    autor: "Autor",
-    ano: 9999,
-    paginas: 333,
-    sinopse: "Quando virou o envelope, com a mão trêmula, Harry viu um lacre de cera púrpura com um brasão; um leão, uma águia, um texugo e uma cobra circulando uma grande letra\nHarry Potter nunca havia ouvido falar de Hogwarts quando as cartas começaram a aparecer no capacho da Rua dos Alfeneiros, nº 4. Escritos a tinta verde-esmeralda em pergaminho amarelado com um lacre de cera púrpura, as cartas eram rapidamente confiscadas por seus pavorosos tio e tia. Então, no aniversário de onze anos de Harry, um gigante com olhos que luziam como besouros negros chamado Rúbeo Hagrid surge com notícias surpreendentes: Harry Potter é um bruxo e tem uma vaga na Escola de Magia e Bruxaria de Hogwarts. Uma incrível aventura está para começar!",
-    preco: 99.90 
+    titulo: "Quarto de Despejo: Diário de uma Favelada",
+    autor: "Carolina Maria de Jesus",
+    ano:1960,
+    paginas: 180,
+    sinopse: "O livro é uma compilação dos diários reais de Carolina Maria de Jesus, uma mulher negra, mãe solteira e catadora de papel que vivia na favela do Canindé, em São Paulo, nos anos 1950. A obra relata de forma crua e direta a luta diária contra a fome, a pobreza extrema, a violência da favela e o descaso social, alternando relatos do cotidiano com reflexões profundas sobre a sociedade brasileira. A 'favela' é descrita pela autora como o 'quarto de despejo' da cidade, onde se joga o que não se quer ver.",
+    preco: 59.90
     }   
 ]
+
+// Função de criar um arquivo JSON
+function criarArquivo (obj){
+    const dadosJSON = JSON.stringify(obj)
+    const fs = require("fs")
+    fs.writeFileSync("livros.json", dadosJSON)
+}
+
+//criarArquivo(livros)
+
+//Função Ler arquivo
+function lerArquivo(arquivo){
+    const arquivolido = require(arquivo)
+    console.log(arquivolido)
+}
+
+//lerArquivo("./livros.json")
+
+// Função organiar lista
+function OrganizarLista(lista){
+    for(let i = 0; i < lista.length; i++)
+    console.log("Título: " + lista[i].titulo + "\nAutor: " + lista[i].autor + "\nAno: " + lista[i].ano + "\nNº de páginas: " + lista[i].paginas + "\nSinopse: " + lista[i].sinopse + "\nPreço: R$" + lista[i].preco + "\n---------------------------------------")
+}
+
+OrganizarLista(livros)
