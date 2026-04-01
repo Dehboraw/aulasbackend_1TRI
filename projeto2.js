@@ -37,5 +37,29 @@ function organizarLista(lista){
                     livro.sinopse)
     })
 }
+organizarLista(arquivo)
+
+let livrosFiltrados = arquivo.filter((livro)=> livro.preco>40)
+//organizarLista(livrosFiltrados)
+
+let livroDesconto = arquivo.map((livro) => {
+    return{...livro, preco: livro.preco*0.95} //spread operator - copia o objeto.
+
+})
+
+//organizarLista(livroDesconto)
+
+function addLivro(obj){
+    arquivo.push(obj)
+}
+
+addLivro({
+    titulo: "Triste Fim de Policarpo Quaresma",
+    autor: "Lima Barreto",
+    ano: 1915,
+    paginas: 288 ,
+    sinopse: "O romance pré-modernista narra a história de Policarpo Quaresma, um funcionário público exemplar, extremamente nacionalista e idealista. Ele dedica sua vida a valorizar a cultura brasileira, a agricultura e a língua tupi, sonhando em tornar o Brasil uma grande nação. ",
+    preco: 30.00, 
+})
 
 organizarLista(arquivo)
